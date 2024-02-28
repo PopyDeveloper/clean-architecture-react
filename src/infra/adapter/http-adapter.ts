@@ -1,3 +1,5 @@
+import Todo from "../../entites/Todo";
+
 export default interface HttpAdapter {
-  get(url: string): Promise<any>
+  get(id: string): Promise<Todo>
 }

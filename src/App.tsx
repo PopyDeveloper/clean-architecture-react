@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 import './App.css'
-import AdapterFetch from './infra/adapter/adapter-fetch'
-import { URL_BASE } from './constants/URL'
 import HttpClient from './infra/http/http-client'
+import AdapterAxios from './infra/adapter/adapter-axios'
 
 function App() {
-  const adapter = new AdapterFetch(URL_BASE)
+  const adapter = new AdapterAxios()
   const httpClient = new HttpClient(adapter)
 
   useEffect(() => {
