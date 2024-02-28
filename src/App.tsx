@@ -1,16 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import HttpClient from './infra/http/http-client'
-import AdapterAxios from './infra/adapter/adapter-axios'
+import { getTodos } from './services/todo-services'
+import Todo from './entites/Todo'
 
 function App() {
-  const adapter = new AdapterAxios()
-  const httpClient = new HttpClient(adapter)
+
+  const [todo, setTodo] = useState<Todo>()
 
   useEffect(() => {
     const getData = async () => {
-      const data = await httpClient.get('1')
-      console.log(data)
+      const data = await getTodos('1')
+      setTodo(data)
     }
 
     getData()
@@ -20,6 +20,10 @@ function App() {
   return (
     <>
       <h1>test</h1>
+      {
+        todo && 
+        <p>{JSON.stringify(todo)}</p>
+      }
     </>
   )
 }
