@@ -5,8 +5,7 @@ import Todo from './entites/Todo'
 
 function App() {
 
-  const [todo, setTodo] = useState()
-  //oi
+  const [todo, setTodo] = useState<Todo>()
 
   console.info('alo')
 
