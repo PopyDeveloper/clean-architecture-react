@@ -7,6 +7,8 @@ function App() {
 
   const [todo, setTodo] = useState<Todo>()
 
+  console.info('alo')
+
   useEffect(() => {
     const getData = async () => {
       const data = await getTodos('1')
