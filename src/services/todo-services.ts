@@ -1,12 +1,8 @@
-import AdapterAxios from "../infra/adapter/adapter-axios"
-import HttpClient from "../infra/http/http-client"
-
+import { http } from "./http"
 
 export const getTodos = async(id: string) => {
-  const adapter = new AdapterAxios()
-  const httpClient = new HttpClient(adapter)
 
-  const res = await  httpClient.get(id)
+  const res = await  http().get(id)
 
   return res
 }
